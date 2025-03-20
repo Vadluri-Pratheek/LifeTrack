@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/008/311/935/non_2x/the-illustration-graphic-consists-of-abstract-background-with-a-blue-gradient-dynamic-shapes-composition-eps10-perfect-for-presentation-background-website-landing-page-wallpaper-vector.jpg");
+            text-align: center;
+            padding-top: 100px;
+        }
+        h1,h3,p,img,button{
+            opacity: 0;
+            animation: fadein 3s ease-out forwards;
+        }
+        h1{
+            color:white;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        p{
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.522);
+            max-width: 600px;
+            margin: 0 auto; 
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px double rgb(248, 192, 124);
+            animation: fadeinup 1s ease-out forwards;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            background-color: orange;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: rgb(255, 140, 0);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeinup {
+            0% {
+                opacity: 0;
+                transform: translateY(300px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(-60px);
+            }
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fea {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap:20px;
+        }
+
+        .feabox {
+            padding: 15px;
+            width: 350px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding-bottom: 35px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <title>LifeTrack.com</title>
+</head>
+
+<body>
+    <img src="LifeTrack.png">
+
+    <h1>Welcome to LifeTrack</h1>
+    <p>Your one-stop **time management and wellness** dashboard. Prioritize tasks, monitor habits, and enhance
+        productivity effortlessly.</p>
+
+    <div class="fea">
+    <div class="feabox">
+        <h3>📅 Task Management</h3>
+        <p>Get on top of your calendar with our easy-to-use to-do lists and daily planners.</p>
+    </div>
+    <div class="feabox">
+        <h3>📊 Weekly Insights</h3>
+        <p>Track your work habits with visual charts and detailed time reports.
+        </p>
+    </div>
+    </div><br>
+
+    <button id="start"><a href="Secondpage.html">Get Started</a></button>
+</body>
+
+</html>

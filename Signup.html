@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<HTML>
+
+<head>
+    <style>
+        *{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding:0;
+
+        }
+        body {
+            background-image: url("https://static.vecteezy.com/system/resources/previews/008/311/935/non_2x/the-illustration-graphic-consists-of-abstract-background-with-a-blue-gradient-dynamic-shapes-composition-eps10-perfect-for-presentation-background-website-landing-page-wallpaper-vector.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        div{
+            background-color: ghostwhite;
+            border-radius: 10px;
+            width: 400px;
+            padding:20px;
+            transition: 0.3s ease-in-out;
+        }
+        div:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px darkgray;
+            transform: scale(0.9);
+        }
+        .b1,.b2,.b0{
+            display: inline-block;
+            width: 50%;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+        }
+
+        .b1 {
+            background-color: rgba(0, 145, 255, 0.699);
+        }
+        .b1:hover{
+            background-color: rgba(0, 119, 255, 0.733);
+            transform: scale(1.05);
+        }
+        .b2 {
+            background-color: rgb(255, 0, 0);
+
+        }
+        .b2:hover{
+            background-color: rgb(154, 29, 10);
+            transform: scale(1.05);
+        }
+        .b0{
+            background-color: orange;
+        }
+        .b0:hover{
+            transform: scale(1.05);
+            background-color: rgb(255, 119, 0);
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
+        }
+        input:focus{
+            transform: scale(1.05);
+            outline: none;
+            border-color: cyan;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>SIGN UP 🔒</h1>
+        <form onsubmit="return validate()">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" placeholder="Enter username "><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required placeholder="Enter mobile no"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required placeholder="Enter personel e-mail"><br>
+
+            <label class="gen">Sex:</label><br>
+            <input type="radio" name="sex" value="Male"> Male
+            <input type="radio" name="sex" value="Female"> Female<br>
+
+            <label for="age">Age:</label><br>
+            <input type="number" id="age"min="1"><br>
+
+            <label for="pass">Password:</label><br>
+            <input type="Password" id="password"><br>
+
+            <label for="pass">Confirm Password:</label><br>
+            <input type="Password" id="conpassword"><br>
+
+            <button class="b0" type="submit">SIGN UP</button><br><br>
+            <hr>
+            <hr>
+            <button class="b1" type="button" onclick="window.location.href='https://www.facebook.com/login/'">Sign Up with
+                Facebook</button><br><br>
+            <button class="b2" type="button" onclick="window.location.href='https://accounts.google.com/'">Sign up with
+                Google</button><br>
+        </form>
+    </div>
+    <script>
+        function validate() {
+    let name = document.getElementById("username").value.trim();
+    let pass = document.getElementById("password").value;
+    let cpass = document.getElementById("conpassword").value;
+    let ph = document.getElementById("phone").value.trim();
+    let ema = document.getElementById("email").value.trim();
+    let agee=document.getElementById("age").value;
+    let gender = document.querySelector('input[name="sex"]:checked');
+
+    if (name === "") {
+        alert("Please enter a username!");
+        return false;
+    }
+
+    if (pass.length < 6) {
+        alert("Password should be at least 6 characters!");
+        return false;
+    }
+    if (!gender) {
+        alert("Please select your gender!");
+        return false;
+    }
+    if (pass !== cpass) {
+        alert("Passwords do not match!");
+        return false;
+    }
+    if (!/^\d{10}$/.test(ph)) {
+        alert("Enter a valid 10-digit mobile number!");
+        return false;
+    }
+
+    if (!ema.includes("@") || !ema.includes(".")) {
+        alert("Entered email is incorrect");
+        return false;
+    }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", ema);
+    localStorage.setItem("phone", ph);
+    localStorage.setItem("pass", pass);
+    localStorage.setItem("age",agee);
+
+    alert("Sign Up Successful!");
+    window.location.href = "front.html";
+    
+    return false;
+}
+    </script>
+</body>
+</HTML>
+
+
+

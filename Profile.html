@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            font-family:Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        body {
+            background-color: bisque;
+            height: 100hv;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile {
+            border: 3px solid rgb(0, 0, 0);
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+        }
+
+        div {
+            padding: 30px;
+            background-color: ghostwhite;
+            border-radius: 10px;
+            width: 300px;
+            transition: 0.3s ease-in-out;
+        }
+
+        div:hover {
+            transform: translateY(60px);
+            box-shadow: 0px 10px 20px darkgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid black;
+        }
+
+        button:hover {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>👤Profile </h1>
+        <p><b>Name:</b> <span id="name"></span></p>
+        <p><b>Age:</b> <span id="age"></span></p>
+        <p><b>Gender:</b> Male <span id="gender"></span> </p>
+        <p><b>Email:</b> <span id="email"></span></p>
+        <p><b>Phone:</b> <span id="phone"></span></p>
+        <button onclick="logout()">Logout</a></button><br><br>
+        <hr>
+        <hr><br>
+        <b>ADD ANOTHER USER </b><br><br>
+        <button><a href="Login.html">Already have an account? Login</a></button><br><br>
+        <button><a href="Signup.html">Sign Up</a></button>
+    </div>
+
+    <script>
+        document.getElementById("name").innerText = localStorage.getItem("name");
+        document.getElementById("age").innerText=localStorage.getItem("age");
+        document.getElementById("gender").innerText = localStorage.getItem("gender");
+        document.getElementById("email").innerText = localStorage.getItem("email");
+        document.getElementById("phone").innerText = localStorage.getItem("phone");
+        function logout() {
+            localStorage.clear();
+            alert("You have been logged out.");
+            window.location.href = "Signup.html";
+        }
+    </script>
+</body>
+
+</html>

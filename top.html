@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-y: hidden;
+        }
+
+        body {
+            background-image: url("https://static.vecteezy.com/system/resources/previews/008/311/935/non_2x/the-illustration-graphic-consists-of-abstract-background-with-a-blue-gradient-dynamic-shapes-composition-eps10-perfect-for-presentation-background-website-landing-page-wallpaper-vector.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        ul {
+            list-style-type: none;
+            width: 100%;
+            background-color: rgb(46, 43, 43);
+        }
+
+        li {
+            float: left;
+            border-right: 1px solid white;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            padding: 12px 92px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: black;
+        }
+
+        .active {
+            background-color: rgb(18, 143, 18);
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        ul li:last-child {
+            float: right;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px double rgb(248, 192, 124);
+        }
+
+        .logo:hover {
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .profile {
+            border: 2px double rgb(0, 0, 0);
+            height: 70px;
+            width: 70px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            border-radius: 50%;
+        }
+
+        .profile:hover {
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .head {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <a href="Profile.html" target="a"><img class="profile"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm7LDPd1oIgtXf1fOWuCH9puR0_feIz1giWg&s"
+                height="60px"></a>
+        <img class="logo" src="LifeTrack.png" height="100px">
+    </div>
+
+    <ul>
+        <li><a class="active" href="Home.html" target="a">🏠Home</a></li>
+        <li><a href="Todolist.html" target="a">📋To-Do</a></li>
+        <li><a href="Daily.html" target="a">🎯Goals</a></li>
+        <li><a href="Notes.html" target="a">📝Notes</a></li>
+        <li><a href="track.html" target="a">⏳Time📊</a></li>
+        <li style="float: right;"><a href="Aboutus.html" target="a">ℹ️About Us</a></li>
+
+    </ul>
+
+</body>
+
+</html>

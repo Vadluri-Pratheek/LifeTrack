@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<HTML>
+
+<head>
+    <style>
+        body {
+            background-image: url("https://static.vecteezy.com/system/resources/previews/008/311/935/non_2x/the-illustration-graphic-consists-of-abstract-background-with-a-blue-gradient-dynamic-shapes-composition-eps10-perfect-for-presentation-background-website-landing-page-wallpaper-vector.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: bisque;
+            text-align: center;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        div{
+            background-color: ghostwhite;
+            border-radius: 10px;
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            transition: 0.3s ease-in-out;
+            padding:20px;
+        }
+        div:hover{
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px darkgray;
+        }
+        .b1,.b2 {
+            display: inline-block;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            width: 180px;
+            border-radius: 15px;
+            color: white;
+            margin: 5px;
+        }
+
+        .b1 {
+            background-color: rgba(0, 145, 255, 0.699);
+
+        }
+        .b1:hover{
+            background-color: rgba(0, 119, 255, 0.733);
+            transform: scale(1.1);
+
+
+        }
+        .b2 {
+            background-color: rgb(255, 0, 0);
+
+        }
+        .b2:hover{
+            background-color: rgb(154, 29, 10);
+            transform: scale(1.1);
+
+
+        }
+        input {
+            text-align: center;
+            width: 80%;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
+        }
+        input:focus{
+            transform: scale(1.1);
+            outline: none;
+            border-color: cyan;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Login 🔑</h1>
+        <form onsubmit="return validate()">
+            <label for="username"></label><br>
+            <input type="text" id="username" placeholder="Enter username or email"><br>
+
+            <label for="pass"></label><br>
+            <input type="Password" id="password"placeholder="Enter password"><br>
+
+            <button class="b1" type="submit">Login</button><br><br>
+            <a href="Signup.html"><button type="button">Sign Up</button></a>
+            <button type="button">Forgot Password?</button>
+            <hr>
+            <button class="b1" type="button" onclick="window.location.href='https://www.facebook.com/login/'">Login with
+                Facebook</button><br><br>
+            <button class="b2" type="button" onclick="window.location.href='https://accounts.google.com/'">Login with
+                Google</button><br>
+        </form>
+    </div>
+    <script>
+        function validate()
+        {
+        let name1 = document.getElementById("username").value;
+        if(name1===""){
+            alert("Please enter username!");
+            return false;
+        }
+        let pass1=document.getElementById("password").value;
+        if(pass1.length<6){
+            alert("Password should be min 6 characters !!");
+            return false;
+        }
+        if(name1!==localStorage.getItem("name"))
+        {
+            alert("Incorrect username");
+            return false;
+        }
+        if(pass1!==localStorage.getItem("pass"))
+        {
+            alert("Incorrect Password");
+            return false;
+        }
+        alert("Logged In Successful!");
+        window.location.href = "front.html";
+        return false;
+    }
+    </script>
+</body>
+</HTML>

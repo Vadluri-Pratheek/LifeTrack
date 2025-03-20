@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-image: url("https://media.istockphoto.com/id/119164825/photo/weekly-goals.jpg?s=612x612&w=0&k=20&c=onK7pGiE5QtnGhW8pW9k88K7UqJJHE0lTOfB9gLMswk=");
+            background-repeat: no-repeat;
+            background-size:cover;
+        
+            background-color: rgb(221, 228, 235);
+            margin: 50px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        button {
+            border: 1px solid;
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: bisque;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        input {
+            border: 1px solid;
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        ul {
+            text-align: center;
+        }
+
+        li {
+            background: rgb(253, 228, 198);
+            margin: 10px auto;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+            max-width: 500px;
+        }
+
+        
+        .container {
+            text-align: center;
+            background-color: rgb(246, 168, 73);
+            border-radius: 10px;
+            border: 5px double rgb(118, 69, 11);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.508);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>📆 </h2>
+        <h2>Daily & Weekly Goals</h2>
+        <label>Goal:</label><br>
+        <input type="text" id="taskInput" placeholder="Enter a goal">
+
+        <label>Due Date:</label><br>
+        <input type="date" id="date">
+        <select id="weekordaily">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+        </select><br>
+        <button onclick="addTask()">➕Add Goal</button>
+        <button onclick="clearlist()">🗑️Clear List</button>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        let tasks = JSON.parse(localStorage.getItem("goals")) || [];
+
+        function addTask() {
+            let task = document.getElementById("taskInput").value;
+            let date = document.getElementById("date").value;
+            let type = document.getElementById("weekordaily").value;
+
+            if (task === '' || date === '') {
+                alert("⚠️ Please enter a goal and a due date!");
+                return;
+            }
+
+            tasks.push({ text: task, date: date, type: type });
+            document.getElementById("taskInput").value = '';
+            document.getElementById("date").value = '';
+            saveTasks();
+            print();
+        }
+
+        function remove(index) {
+            tasks.splice(index, 1);
+            saveTasks();
+            print();
+        }
+        function clearlist() {
+            if (tasks.length === 0) {
+                alert("Goals list is already empty!");
+                return;
+            }
+            tasks.length = 0;
+            saveTasks();
+            print();
+        }
+
+        function print() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = '';
+            tasks.forEach((task, i) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <span>${task.type.toUpperCase()} Goal: ${task.text} (Due: ${task.date})</span>
+                    <input type="checkbox" onclick="remove(${i})">
+                    <button class='remove' onclick='remove(${i})'>❌</button>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        function saveTasks() {
+            localStorage.setItem("goals", JSON.stringify(tasks));
+        }
+
+        window.onload = print;
+    </script>
+</body>
+
+</html>
