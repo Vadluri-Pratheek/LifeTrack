@@ -43,7 +43,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome<span id="name"></span></h1>
+        <h1>Welcome <span id="name"></span></h1>
         <p>Your one-stop shop for time management, goal setting, and productivity enhancement.</p>
         <p>We have some features like :</p>
         <div class="nav">
@@ -53,7 +53,10 @@
             <li>Digital wellbeing</li>
         </div>
         <p>Start planning your time wisely and coexist with LifeTrack.</p>
-        <div class="footer"> 2025 LifeTrack | All Rights Reserved</div>
+        <div class="footer"> @2025 LifeTrack | All Rights Reserved</div>
     </div>
+    <script>
+            document.getElementById("name").innerHTML=localStorage.getItem("name");
+    </script>
 </body>
 </html>
